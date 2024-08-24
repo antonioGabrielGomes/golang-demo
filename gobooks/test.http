@@ -1,3 +1,15 @@
+###
+POST  http://localhost:8080/books/simulates
+Accept: application/json
+
+{
+  "book_ids": [1,2,3,4]
+}
+
+###
+GET http://localhost:8080/books?search=dados
+Accept: application/json
+
 ### Listar todos os livros
 GET http://localhost:8080/books
 Accept: application/json
@@ -7,8 +19,8 @@ POST http://localhost:8080/books
 Content-Type: application/json
 
 {
-  "title": "Clean Code",
-  "author": "Robert C. Martin",
+  "title": "Estrutura de dados",
+  "author": "Loiane groner",
   "genre": "Software Engineering"
 }
 

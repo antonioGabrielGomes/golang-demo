@@ -21,7 +21,17 @@ func NewBookHandlers(service *service.BookService) *BookHandlers {
 
 // GetBooks lida com a requisição GET /books.
 func (h *BookHandlers) GetBooks(w http.ResponseWriter, r *http.Request) {
-	books, err := h.service.GetBooks()
+	query := r.URL.Query()
+
+	var books []service.Book
+	var err error
+
+	if len(query["search"]) > 0 && len(query["search"][0]) > 0 {
+		books, err = h.service.SearchBooksByName(query["search"][0])
+	} else {
+		books, err = h.service.GetBooks()
+	}
+
 	if err != nil {
 		http.Error(w, "failed to get books", http.StatusInternalServerError)
 		return
