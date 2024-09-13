@@ -1,20 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-const OvenTime = 40
+// arrays
+func array() {
+	var a [2]string
+	a[0] = "Hello"
+	a[1] = "World"
 
-func RemainingOvenTime(actualMinutesInOven int) int {
-	if actualMinutesInOven > 0 {
-		if actualMinutesInOven <= OvenTime {
-			return OvenTime - actualMinutesInOven
-		} else {
-			return actualMinutesInOven - OvenTime
-		}
-	}
-	return 0
+	// strconv.QuoteToASCII
+	fmt.Println(a[0][0])
+	fmt.Println(string(a[0][0]))
+
+	//fmt.Println(a[0], a[1])
+	//fmt.Println(a)
+
+	//primes := [6]int{2, 3, 5, 7, 11, 13}
+	//fmt.Println(primes)
 }
 
-func main() {
-	fmt.Println(RemainingOvenTime(30))
+// loop
+func loop() {
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
 }
